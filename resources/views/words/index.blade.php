@@ -1,25 +1,28 @@
 @extends('layouts.app')
-
 @section('content')
     <h1>Üretilen Kelimeler</h1>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Sıra Numarası</th>
-            <th>Kelime</th>
-            <th>Harf Adetleri</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach ($words as $word)
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
             <tr>
-                <td>{{ $word->id }}</td>
-                <td>{{ $word->word }}</td>
-                <td>{{ $word->getLetterCounts() }}</td>
+                <th style="width: 10%;">Sıra Numarası</th>
+                <th style="width: 40%;">Kelime</th>
+                <th style="width: 50%;">Harf Adetleri</th>
             </tr>
-        @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            @foreach ($words as $word)
+                <tr>
+                    <td>{{ $word->id }}</td>
+                    <td>{{ $word->word }}</td>
+                    <td>{{ $word->getLetterCounts() }}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
 
-    {{ $words->links('pagination::bootstrap-4') }}
+    <div class="pagination justify-content-center">
+        {{ $words->links('pagination::bootstrap-4') }}
+    </div>
 @endsection
