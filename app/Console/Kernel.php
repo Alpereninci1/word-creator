@@ -18,10 +18,10 @@ class Kernel extends ConsoleKernel
             for ($j = 0; $j < 10; $j++) {
                 $word = '';
                 for ($i = 0; $i < 10; $i++) {
-                    $letter = $letters[rand(0, 25)];
-                    $word .= $i % 2 === 0 ? strtoupper($letter) : strtolower($letter);
+                    $letter = $letters[rand(0, 25)]; // rastgele harf seçer
+                    $word .= $i % 2 === 0 ? strtoupper($letter) : strtolower($letter); // bir küçük bir büyük olarak harfleri kelimeye ekler
                 }
-                Word::create(['word' => $word]);
+                Word::create(['word' => $word]); // oluşan kelimeyi veritabanımıza kaydeder.
             }
         })->everyMinute();
     }

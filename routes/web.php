@@ -18,6 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
 Route::get('/words', [WordGeneratorController::class, 'index'])->name('words.index');

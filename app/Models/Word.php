@@ -13,7 +13,7 @@ class Word extends Model
         'word'
     ];
 
-    public function getLetterCounts()
+    public function getLetterCounts() // Harf adetlerini hesaplayan fonksiyon
     {
         $counts = array_count_values(str_split(strtolower($this->word)));
         ksort($counts);
